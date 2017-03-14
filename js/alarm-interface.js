@@ -1,4 +1,5 @@
 var Alarm = require('./../js/alarm.js').alarmModule;
+var api_key = 'AIzaSyAP7beQUlRl7983hsAyOEkfx6U3Q5M3Uv8';
 
 $(document).ready(function(){
   var currentTime= moment().format('HH:mm');
@@ -9,13 +10,8 @@ $(document).ready(function(){
   $('#alarmSet').submit(function (event) {
     event.preventDefault();
     var alarmTime = $('#timeSet').val();
-    // var alarmDate = $('#dateSet').val();
-    var new_alarm = new Alarm (alarmTime);
+    var search = $('#search').val();
+    var new_alarm = new Alarm (alarmTime, search);
     new_alarm.setAlarm();
-
-    // var alarmSet = alarmDate + alarmTime;
-    // console.log(alarmSet);
-    // var alarm = moment(alarmSet).add(1, 'hours');
-    // console.log(alarm);
   });
 });
