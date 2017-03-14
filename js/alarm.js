@@ -1,12 +1,26 @@
-var options="";
+var currentTime= moment().format('HH:mm');
 
-for (var i=1; i<=12; i++){
-  options += "<option>"+ i + "</option>";
+function Alarm(setTime)
+{
+  this.setTime= setTime;
 }
 
-document.getElementById('hours').innerHTML= options;
+Alarm.prototype.setAlarm = function () {
+  if(this.setTime === currentTime) {
+    alert("this is the alarm going off!");
+  }
+};
+
+
+// var options="";
+//
+// for (var i=1; i<=12; i++){
+//   options += "<option>"+ i + "</option>";
+// }
+//
+// document.getElementById('hours').innerHTML= options;
+//
 
 
 
-
-// exports.alarmModule = Alarm;
+exports.alarmModule = Alarm;
